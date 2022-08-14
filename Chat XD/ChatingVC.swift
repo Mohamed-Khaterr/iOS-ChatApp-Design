@@ -28,6 +28,7 @@ class ChatingVC: UIViewController {
         Message(isMe: false, message: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.", image: UIImage(named: "4.jpg")),
     ]
     
+    var keyboardHeight: CGFloat?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,6 +44,7 @@ class ChatingVC: UIViewController {
         
         tabBarController?.tabBar.isHidden = true
         
+        navigationController?.navigationBar.clipsToBounds = false
         navigationController?.navigationBar.topItem?.title = ""
         navigationController?.navigationBar.tintColor = .white
         navigationItem.setTitle(title: "Janet Fowler", subtitle: "Online now")
@@ -55,17 +57,16 @@ class ChatingVC: UIViewController {
     
     @objc func keyboardWillShow(notification: NSNotification) {
         if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
-            
-            UIView.animate(withDuration: 0.3) {
-                self.view.frame = CGRect(x: 0, y: -keyboardSize.height, width: self.view.frame.size.width, height: self.view.frame.size.height)
+            if keyboardHeight == nil {
+                keyboardHeight = keyboardSize.height
             }
         }
-
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         tabBarController?.tabBar.isHidden = false
+        navigationController?.navigationBar.clipsToBounds = true
     }
     
     // Dismiss Keyboard
@@ -151,14 +152,18 @@ struct Message{
 
 extension ChatingVC: UITextFieldDelegate{
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
-        
+        UIView.animate(withDuration: 0.36) {
+            guard let keyboardHeight = self.keyboardHeight else { return }
+            
+            self.view.frame = CGRect(x: 0, y: -keyboardHeight, width: self.view.frame.size.width, height: self.view.frame.size.height)
+        }
         
         return true
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         // Make UIView return back to its position
-        UIView.animate(withDuration: 0.3) {
+        UIView.animate(withDuration: 0.36) {
             textField.endEditing(true)
             self.view.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height)
         }

@@ -152,7 +152,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" indicatorStyle="black" keyboardDismissMode="interactive" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Cr5-iy-uRP">
-                                <rect key="frame" x="0.0" y="108" width="414" height="629"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="649"/>
                                 <color key="backgroundColor" name="Background Color"/>
                             </tableView>
                         </subviews>
@@ -161,7 +161,7 @@
                         <constraints>
                             <constraint firstItem="Cr5-iy-uRP" firstAttribute="leading" secondItem="tKn-tF-8dJ" secondAttribute="leading" id="FMe-RH-XbN"/>
                             <constraint firstItem="tKn-tF-8dJ" firstAttribute="trailing" secondItem="Cr5-iy-uRP" secondAttribute="trailing" id="RkI-hu-fEb"/>
-                            <constraint firstItem="Cr5-iy-uRP" firstAttribute="top" secondItem="tKn-tF-8dJ" secondAttribute="top" constant="20" id="VpZ-74-gbW"/>
+                            <constraint firstItem="Cr5-iy-uRP" firstAttribute="top" secondItem="tKn-tF-8dJ" secondAttribute="top" id="VpZ-74-gbW"/>
                             <constraint firstItem="tKn-tF-8dJ" firstAttribute="bottom" secondItem="1YC-2O-2RZ" secondAttribute="bottom" constant="20" id="YOW-6V-JdP"/>
                             <constraint firstItem="1YC-2O-2RZ" firstAttribute="leading" secondItem="tKn-tF-8dJ" secondAttribute="leading" constant="10" id="eYS-Tw-XLh"/>
                             <constraint firstItem="tKn-tF-8dJ" firstAttribute="trailing" secondItem="1YC-2O-2RZ" secondAttribute="trailing" constant="10" id="hTV-Lj-oCN"/>
@@ -348,10 +348,11 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="SGq-13-wXv">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" red="0.12156862745098039" green="0.12156862745098039" blue="0.12156862745098039" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <textAttributes key="titleTextAttributes">
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </textAttributes>
+                        <navigationBarAppearance key="standardAppearance"/>
+                        <navigationBarAppearance key="scrollEdgeAppearance"/>
                     </navigationBar>
                     <connections>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="prr-X3-vwR"/>
@@ -370,6 +371,8 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="8JG-U6-YBN">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <navigationBarAppearance key="standardAppearance"/>
+                        <navigationBarAppearance key="scrollEdgeAppearance"/>
                     </navigationBar>
                     <connections>
                         <segue destination="ToR-z3-JJM" kind="relationship" relationship="rootViewController" id="hdA-st-pq3"/>
@@ -388,6 +391,8 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="XYH-Br-0xN">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <navigationBarAppearance key="standardAppearance"/>
+                        <navigationBarAppearance key="scrollEdgeAppearance"/>
                     </navigationBar>
                     <connections>
                         <segue destination="Be9-Dm-FOf" kind="relationship" relationship="rootViewController" id="Nzd-Lg-au6"/>
@@ -406,6 +411,9 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="yE9-cy-Agb">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" name="Background Color"/>
+                        <navigationBarAppearance key="standardAppearance"/>
+                        <navigationBarAppearance key="scrollEdgeAppearance"/>
                     </navigationBar>
                     <connections>
                         <segue destination="Lrj-8v-8I1" kind="relationship" relationship="rootViewController" id="X5k-YA-CRf"/>
