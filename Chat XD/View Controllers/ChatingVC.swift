@@ -59,6 +59,7 @@ class ChatingVC: UIViewController {
         if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
             if keyboardHeight == nil {
                 keyboardHeight = keyboardSize.height
+                moveTheView(height: keyboardSize.height)
             }
         }
     }
@@ -86,6 +87,12 @@ class ChatingVC: UIViewController {
     @IBAction func micButtonPressed(_ sender: UIButton) {
     }
     
+    
+    private func moveTheView(height: CGFloat){
+        UIView.animate(withDuration: 0.36) {
+            self.view.frame = CGRect(x: 0, y: -height, width: self.view.frame.size.width, height: self.view.frame.size.height)
+        }
+    }
 }
 
 
@@ -151,22 +158,17 @@ struct Message{
 
 
 extension ChatingVC: UITextFieldDelegate{
-    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
-        UIView.animate(withDuration: 0.36) {
-            guard let keyboardHeight = self.keyboardHeight else { return }
-            
-            self.view.frame = CGRect(x: 0, y: -keyboardHeight, width: self.view.frame.size.width, height: self.view.frame.size.height)
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        if let keyboardHeight = keyboardHeight{
+            moveTheView(height: keyboardHeight)
         }
-        
-        return true
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         // Make UIView return back to its position
-        UIView.animate(withDuration: 0.36) {
-            textField.endEditing(true)
-            self.view.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height)
-        }
+        moveTheView(height: 0)
+        
+        textField.endEditing(true)
         
         return true
     }
